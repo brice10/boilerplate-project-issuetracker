@@ -1,3 +1,5 @@
+'use strict';
+
 const Issue = require('../collections/Issue');
 const mongoose = require('mongoose');
 

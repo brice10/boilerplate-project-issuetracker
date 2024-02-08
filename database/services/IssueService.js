@@ -1,3 +1,5 @@
+'use strict';
+
 const IssueRepository = require('../repositories/IssueRepository');
 
 // A king of interface made to implement all advanced operations 
