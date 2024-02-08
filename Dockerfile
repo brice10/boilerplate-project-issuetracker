@@ -1,0 +1,17 @@
+FROM node:14
+
+COPY . /app
+WORKDIR /app
+RUN npm install
+
+ARG PORT
+ENV PORT=$PORT
+
+ARG NODE_ENV
+ENV NODE_ENV=$NODE_ENV
+
+ARG MONGO_URI
+ENV MONGO_URI=$MONGO_URI
+
+EXPOSE $PORT
+CMD ["npm", "start"]
