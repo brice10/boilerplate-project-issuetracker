@@ -51,16 +51,16 @@ class IssueService {
         }
         let documentFound = await this.issueRepository.findById(requestBody._id)
 
-        if (!documentFound) {
+        if (documentFound && !requestBody.issue_title && !requestBody.issue_text && !requestBody.created_by && !requestBody.assigned_to && !requestBody.status_text && (requestBody.open === null || requestBody.open === undefined)) {
             return {
-                error: 'could not update',
+                error: 'no update field(s) sent',
                 _id: requestBody._id
             };
         }
 
-        if (!requestBody.issue_title && !requestBody.issue_text && !requestBody.created_by && !requestBody.assigned_to && !requestBody.status_text && (requestBody.open === null || requestBody.open === undefined)) {
+        if (!documentFound) {
             return {
-                error: 'no update field(s) sent',
+                error: 'could not update',
                 _id: requestBody._id
             };
         }
