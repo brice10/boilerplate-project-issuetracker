@@ -12,8 +12,7 @@ module.exports = function (app) {
       try {
         let filter = req.query;
         filter.project_name = project;
-        let array = await IssueServiceHelper.find(filter)
-        return res.json(array)
+        return res.json(await IssueServiceHelper.find(filter));
       }
       catch (error) {
         console.log(error)
@@ -50,7 +49,6 @@ module.exports = function (app) {
         console.log(error)
         return res.status(500).json({ error: 'Unknown error when trying to delete the Issue in the database', data: error })
       }
-
     });
 
 };

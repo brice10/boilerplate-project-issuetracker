@@ -8,6 +8,7 @@ chai.use(chaiHttp);
 const IssueRepository = require('../database/repositories/IssueRepository');
 
 suite('Functional Tests', function () {
+  
   const CollectionRepository = new IssueRepository();
 
   this.beforeEach(async function () {
