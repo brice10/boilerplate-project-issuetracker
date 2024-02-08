@@ -305,7 +305,7 @@ suite('Functional Tests', function () {
           assert.isOk(resBody._id);
           assert.isOk(resBody.error);
           assert.equal(resBody._id, 'invalid_id');
-          assert.equal(resBody.error, 'could not update');
+          assert.equal(resBody.error, 'no update field(s) sent');
 
           done();
         });

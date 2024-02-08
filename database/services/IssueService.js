@@ -49,7 +49,7 @@ class IssueService {
         }
         let documentFound = await this.issueRepository.findById(requestBody._id)
 
-        if (documentFound && !requestBody.issue_title && !requestBody.issue_text && !requestBody.created_by && !requestBody.assigned_to && !requestBody.status_text && (requestBody.open === null || requestBody.open === undefined)) {
+        if (!requestBody.issue_title && !requestBody.issue_text && !requestBody.created_by && !requestBody.assigned_to && !requestBody.status_text && (requestBody.open === null || requestBody.open === undefined)) {
             return {
                 error: 'no update field(s) sent',
                 _id: requestBody._id
