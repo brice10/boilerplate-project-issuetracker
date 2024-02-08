@@ -14,10 +14,13 @@ class IssueRepository {
 
     async create(issue) {
         issue._id = new mongoose.Types.ObjectId();
+        issue.created_on = new Date();
+        issue.updated_on = issue.created_on;
         return await (new IssueRepository.model(issue)).save();
     }
 
     async update(_id, issue) {
+        issue.updated_on = new Date();
         return await IssueRepository.model.findByIdAndUpdate(_id, issue);
     }
 

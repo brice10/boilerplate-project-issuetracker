@@ -22,8 +22,6 @@ class IssueService {
             project_name: project,
             issue_title: requestBody.issue_title,
             issue_text: requestBody.issue_text,
-            created_on: new Date(),
-            updated_on: new Date(),
             created_by: requestBody.created_by,
             assigned_to: requestBody.assigned_to ? requestBody.assigned_to : "",
             open: true,
@@ -71,8 +69,7 @@ class IssueService {
             created_by: requestBody.created_by ? requestBody.created_by : documentFound.created_by,
             assigned_to: requestBody.assigned_to ? requestBody.assigned_to : documentFound.assigned_to,
             status_text: requestBody.status_text ? requestBody.status_text : documentFound.status_text,
-            open: requestBody.open === undefined || requestBody.open === null ? documentFound.open: requestBody.open,
-            updated_on: new Date()
+            open: requestBody.open === undefined || requestBody.open === null ? documentFound.open: requestBody.open
         })
 
         return {

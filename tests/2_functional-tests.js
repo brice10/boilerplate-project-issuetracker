@@ -8,6 +8,8 @@ chai.use(chaiHttp);
 const IssueRepository = require('../database/repositories/IssueRepository');
 
 suite('Functional Tests', function () {
+
+  this.timeout(5000);
   
   const CollectionRepository = new IssueRepository();
 

@@ -7,14 +7,6 @@ class Issue {
     constructor(collectionName) {
         this._collectionName = collectionName || 'Issue';
         this._model = mongoose.model(this._collectionName, this._schema);
-
-        this._schema.pre('save', function (next) {
-            if (!this.created_on) {
-                this.created_on = new Date();
-            }
-            this.updated_on = new Date();
-            next()
-        })
     }
 
     _schema = new mongoose.Schema({
